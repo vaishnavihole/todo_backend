@@ -1,6 +1,6 @@
 const express = require('express');
 
-const app = express();
+let app = express();
 
 
 app.use(express.json())
@@ -54,6 +54,16 @@ app.post('get_task', (req, res)=>{
 })
 
 
+//Delete all Tasks
+app.post('/delete_tasks', (req, res)=>{
+    tasks = []
+    res.json({
+        'status': 'success',
+        'data': resultTask
+    })
+})
+
 app.listen(PORT, ()=>{
     console.log('Server started running on port',PORT);
 })
+
